@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  get 'home' => 'static_pages#home'
 
-  get 'static_pages/help'
+  get 'help' => 'static_pages#help'
 
-  get 'static_pages/about'
+  get 'about' => 'static_pages#about'
 
-  get 'static_pages/contact'
-
+  get 'contact' => 'static_pages#contact'
+  get 'scholars/new'
   resources :microposts
   resources :scholars
   root 'scholars#index'
