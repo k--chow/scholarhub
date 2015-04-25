@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'scholars/new'
   resources :microposts
   resources :scholars
-  root 'scholars#index'
+  root 'static_pages#home'
 end
