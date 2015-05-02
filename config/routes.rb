@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/new'
 
-  root 			'static_pages#home'
+  root 'static_pages#home'
   get 'home' => 'static_pages#home'
 
   get 'help' => 'static_pages#help'
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   resources :microposts
   resources :scholars
+  resources :users
   
 end

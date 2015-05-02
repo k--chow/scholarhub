@@ -7,6 +7,13 @@ class UserTest < ActiveSupport::TestCase
   					 password: "foobar", password_confirmation: "foobar")
   end
 
+  test "reload email should be email" do
+  	mixed_email = "k__ChOw@hOtMAiL.COM"
+  	@user.email = mixed_email
+  	@user.save
+  	assert_equal mixed_email.downcase, @user.reload.email
+  end
+
   test "should be valid" do
   	assert @user.valid?	
   end
