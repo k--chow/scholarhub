@@ -176,11 +176,23 @@ input {
 }
 
 .jumbotron {
-  background-image:url(../images/logo.png);
+  background-image:url(../images/logo.JPG);
 
   h1 {
     color: white;
     background-color: #0066CC;
     display: inline;
   }
+}
+
+.expand {
+  background-color:#d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info {
+  display: none;
+  padding : 5px;
 }
