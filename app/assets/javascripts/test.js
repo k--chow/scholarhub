@@ -1,5 +1,9 @@
 jQuery(document).ready(function() {
-	jQuery('#tabs').tabs();
+	jQuery('#tabs').ready(function() {
+		jQuery('#tabs').tabs();
+	});
+
+
 	jQuery('.expand').click(function() {
 		$expand = $(this);
 
