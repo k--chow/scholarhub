@@ -58,17 +58,45 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
+  color: grey;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 18px;
   font-weight: bold;
+  font-family: Helvetica;
+
+}
+
+.div.container {
+  height: 60px;
+  background: blue;
+}
+
+.navbar-inverse {
+  background:url("../images/about.png") 50% 0 fixed;
+}
+
+.navbar {
+  height: 60px;
+}
+
+.active {
+  color: white !important;
+}
+
+.inactive {
+  color: red !important;
 }
 
 #logo:hover {
   color: #fff;
   text-decoration: none;
+  background-color: transparent;
 }
+
+.navbar-right {
+  padding-top: 10px;
+}
+
 
 /* footer */
 $blackish : #555;
@@ -175,15 +203,7 @@ input {
   }
 }
 
-.jumbotron {
-  background-image:url(../images/logo.JPG);
 
-  h1 {
-    color: white;
-    background-color: #0066CC;
-    display: inline;
-  }
-}
 
 .expand {
   background-color:#d3d3d3;
@@ -195,4 +215,135 @@ input {
 .info {
   display: none;
   padding : 5px;
+}
+
+
+
+.btn.btn-lg.btn-primary:hover
+{
+  color: white;
+}
+
+/*parallax*/
+
+#intro { 
+    background:url("../images/intro.png") 50% 0 fixed; 
+    
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 100px 0;
+    height: auto;
+}
+#home { 
+    background:url("../images/logo.JPG") 50% 0 fixed; 
+    height: auto;  
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+#about { 
+    background:url("../images/about.png") 50% 0 fixed; 
+    height: auto;
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 100px 0;
+    color: #fff;
+}
+
+.parallax {
+  
+}
+
+.jumbotron {
+  height: 500px;
+}
+
+#map-canvas {
+  height: 550px;
+  
+}
+
+#map-canvas2 {
+  height: 400px;
+  
+}
+
+.map-canvas-inside {
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  
+  width: 300px;
+  height: 300px;
+  z-index: 100;
+  border-radius: 5px;
+  
+  padding: 5px;
+  .btn {
+    
+  }
+}
+
+#learnmore {
+  position: relative;
+  top: -110px;
+  font-size: 20px;
+
+}
+
+#learnmore:hover {
+  text-decoration: none;
+  border: 1px dashed grey;
+  color: grey;
+
+}
+
+#signup{
+  border: solid white 1px;
+  color: white;
+  display: inline;
+  
+}
+
+#signup:hover{
+  text-decoration: overline;
+
+}
+
+#smalltext {
+  font-size: 10px;
+}
+
+#tabs:hover {
+  background-color: white;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#test {
+width: 600px;
+padding: 30px;
+display: none;
+background: #FFF;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
 }

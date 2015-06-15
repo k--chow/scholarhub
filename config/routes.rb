@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'scholars/new'
   get 'signup' => 'users#new'
+  get 'finder' => 'static_pages#finder'
   resources :microposts
   resources :scholars
   resources :users

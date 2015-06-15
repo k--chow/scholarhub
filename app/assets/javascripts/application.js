@@ -11,12 +11,13 @@
 // about supported directives.
 //
 
+//= require bootstrap.min
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require test.js
+//= require smoothscroll.js
+//= require jquery.leanModal.js
+//= require maps.js
 //= require turbolinks
-//= require bootstrap.min
-//= require skrollr.js
 //= require_tree .
 

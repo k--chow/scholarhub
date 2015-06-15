@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	uniqueness: { case_sensitive: false}
 	has_secure_password
 	validates :password, length: { minimum: 6 }, allow_blank: true
-
+  
 	# Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -67,6 +67,11 @@ class User < ActiveRecord::Base
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+
+  def self.search(query)
+    where("name || email like ? ", "%#{query}%")
+  end  
+
 
   private
 

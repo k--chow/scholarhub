@@ -1,0 +1,9 @@
+<%= form_tag(finder_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= submit_tag "Search", :name => nil %>
+  <% if params[:search] %>
+  	<p style="color:black">Search results for '<%=params[:search]%>'</p>
+  	<p style="color:black">'<%= @length %>' result(s) returned. </p>
+  	
+  <% end %>
+<% end %>

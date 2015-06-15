@@ -1,10 +1,16 @@
 jQuery(document).ready(function() {
+
+
+	$(document).on('page:change', function() {
 	jQuery('#tabs').ready(function() {
 		jQuery('#tabs').tabs();
+		
+	});
 	});
 
-
-	jQuery('.expand').click(function() {
+	
+	$(document).on('page:load', function() {
+		jQuery('.expand').click(function() {
 		$expand = $(this);
 
 		$info = $expand.next();
@@ -17,4 +23,15 @@ jQuery(document).ready(function() {
 
 		});
 	});
+	
 });
+	
+});
+
+
+
+
+
+
+
+
