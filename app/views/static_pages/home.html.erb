@@ -191,7 +191,7 @@ function addMarker(users, map) {
 		icon = studentMarker;
 	}
 
-	//alert(latitude + " " + longitude);
+	
 	var point = new google.maps.LatLng(users.lat, users.long);
 	var marker = new google.maps.Marker({
 		position: point,
@@ -199,7 +199,7 @@ function addMarker(users, map) {
 		map: map
 		
 	})
-	console.log(users.lat + " " + users.long);
+	
 	var url = "/signup"; 
 	
 	var info_window = new google.maps.InfoWindow({
