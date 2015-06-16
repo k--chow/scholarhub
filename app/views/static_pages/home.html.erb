@@ -86,16 +86,20 @@ yolo man
 </div>
 	
 
-<script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
-<script>
+<script type="text/javascript">
+var ip = "";
+$.getJSON("http://jsonip.com", 
+function(data) {
+	 this.ip = data.ip
+	
+});
 
-var ip = myip;
 var lats = [];
 var longs = []
 var latitude;
 var longitude;
 var xmlhttp = new XMLHttpRequest();
-var url = "http://ipinfo.io/" + myip + "/json";
+var url = "http://ipinfo.io/" + ip + "/json";
 var users = [];
 
 for (var i=0; i<gon.users.length; i++)
