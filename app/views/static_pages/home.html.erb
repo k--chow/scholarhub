@@ -17,7 +17,7 @@
 </div>
 <!-- Section 1 -->
 
-<a name="more"><section id="intro" data-speed="6" data-type="background"></a><a href="#more" class="smoothScroll"><h1 id="learnmore">Learn More</h1></a>
+<a name="more"><section id="intro"></a><a href="#more" class="smoothScroll"><h1 id="learnmore">Learn More</h1></a>
 
 
 
@@ -87,20 +87,31 @@ yolo man
 	
 
 <script type="text/javascript">
-var ip = "";
-$.getJSON("http://jsonip.com", 
-function(data) {
-	 this.ip = data.ip
-	
+var ip = "x";
+$.ajax({
+	url: "https://telize.com/jsonip",
+	async: false,
+	dataType: 'json',
+	success: function(data){
+		ip = data.ip;
+	}
 });
-
+console.log(ip)
 var lats = [];
 var longs = []
 var latitude;
 var longitude;
-var xmlhttp = new XMLHttpRequest();
-var url = "http://ipinfo.io/" + ip + "/json";
+var url = "https://freegeoip.net/json/" + ip;
 var users = [];
+
+$.ajax({
+	url: url,
+	async: false,
+	dataType: 'json',
+	success: function(data) {
+		myFunction(data);
+	}
+});
 
 for (var i=0; i<gon.users.length; i++)
 {
@@ -132,22 +143,13 @@ function showPosition(position){
 	google.maps.event.addDomListener(window, 'load', initialize(latitude, longitude));
 }
 
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
 
-xmlhttp.onreadystatechange = function() {
-	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		myFunction(xmlhttp.responseText);
-	}
-}
 
-function myFunction(response) {
-	var data = JSON.parse(response);
-	var location = data.loc;
-	var n = location.indexOf(",")
-	var latitude = location.substring(0, n);
-	var longitude = location.substring(n+1);
+function myFunction(data) {
 	
+	var latitude = data.latitude;
+	var longitude = data.longitude;
+	console.log(latitude + " " + longitude);
 	google.maps.event.addDomListener(window, 'load', initialize(latitude, longitude));
 
 }
