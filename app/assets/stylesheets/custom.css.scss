@@ -63,6 +63,7 @@ p {
   padding-top: 18px;
   font-weight: bold;
   font-family: Helvetica;
+  transition: all 1s linear;
 
 }
 
@@ -90,7 +91,7 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
-  background-color: transparent;
+  background-color: transparent; 
 }
 
 .navbar-right {
@@ -299,7 +300,7 @@ input {
 
 #learnmore:hover {
   text-decoration: none;
-  border: 1px dashed grey;
+
   color: grey;
 
 }
