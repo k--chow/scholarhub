@@ -97,11 +97,11 @@ $.ajax({
 	}
 });
 
-var lats = [];
-var longs = []
+//var lats = [];
+//var longs = []
 var latitude;
 var longitude;
-var url = "https://freegeoip.net/json/" + ip;
+var url = "https://freegeoip.net/json/" + ip
 var users = [];
 
 $.ajax({
@@ -110,6 +110,7 @@ $.ajax({
 	dataType: 'json',
 	success: function(data) {
 		myFunction(data);
+		initialize(latitude, longitude, users);
 	}
 });
 
@@ -117,30 +118,10 @@ for (var i=0; i<gon.users.length; i++)
 {
 	if (gon.users[i].lat != null)
 	{
-		lats.push(gon.users[i].lat);
-		longs.push(gon.users[i].long);	
+		
 		users.push(gon.users[i]);
 	}
 	
-}
-
-function getLocation(){
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition);
-	} 
-	else 
-	{
-		x.innerHTML = "Not Supported.";
-	}
-}
-
-function showPosition(position){
-	latitude = position.coords.latitude;
-	longitude = position.coords.longitude;
-	
-	//x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>" + url;
-	
-	google.maps.event.addDomListener(window, 'load', initialize(latitude, longitude));
 }
 
 
@@ -149,13 +130,13 @@ function myFunction(data) {
 	
 	var latitude = data.latitude;
 	var longitude = data.longitude;
+
 	
-	google.maps.event.addDomListener(window, 'load', initialize(latitude, longitude));
 
 }
 	
 
-function initialize(latitude, longitude){
+function initialize(latitude, longitude, users){
 	var mapCanvas = document.getElementById('map-canvas');
 	var mapOptions = {
 		center: new google.maps.LatLng(latitude, longitude),
@@ -168,12 +149,12 @@ function initialize(latitude, longitude){
 	}
 	var map = new google.maps.Map(mapCanvas, mapOptions);
 
-	
+	alert(users.length);
 	for (var i=0; i<users.length; i++)
 	{
 		
-		addMarker(users[i], map);
-
+		addMarker(users[i], window.map);
+		
 		
 	}
 }
@@ -193,7 +174,9 @@ function addMarker(users, map) {
 	else {
 		icon = studentMarker;
 	}
-	console.log(users.lat + " " + users.long);
+	latitude = users.lat;
+	longitude = users.long;
+
 	
 	var point = new google.maps.LatLng(users.lat, users.long);
 	var marker = new google.maps.Marker({
