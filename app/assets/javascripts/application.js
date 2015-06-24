@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require bootstrap.min
+//= require test.js
 //= require jquery
 //= require jquery_ujs
-//= require test.js
+//= require jquery-ui
 //= require smoothscroll.js
 //= require jquery.leanModal.js
 //= require maps.js
