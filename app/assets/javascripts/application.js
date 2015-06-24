@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
 //= require test.js
+//= require bootstrap.min
 //= require jquery-ui
 //= require smoothscroll.js
 //= require jquery.leanModal.js
