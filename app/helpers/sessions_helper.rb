@@ -31,6 +31,11 @@ module SessionsHelper
     user == current_user
   end
 
+  #Returns true if location is not null
+  def no_user_location?
+    current_user.lat == nil
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?

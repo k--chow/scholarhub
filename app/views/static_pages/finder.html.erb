@@ -35,11 +35,27 @@ var lats = [];
 var longs = [];
 var ids = [];
 var loader = document.getElementById('mapTabs');
-var latitude= '<%= @current_user.lat%>';
-var longitude = '<%= @current_user.long%>';
+var latitude;
+var longitude;
 var id = '<%= @current_user.id%>';
+var zoom;
+var maybe;
+if ('<%= @current_user.lat%>' == null)
+{
+	latitude = -0.1865944;
+	longitude = -78.4305382;
+	zoom = 2;
+	maybe = false;
+	
+}
+else {
+	latitude= '<%= @current_user.lat%>';
+	longitude = '<%= @current_user.long%>';
+	zoom = 13;
+	maybe = true;
+}
 
-
+console.log(latitude, longitude);
 for (var i=0; i<gon.users.length; i++)
 {
 	if (id != gon.users[i].id && gon.users[i].long != null)
@@ -56,7 +72,7 @@ function initialize(){
 	var mapCanvas = document.getElementById('map-canvas2');
 	var mapOptions = {
 		center: new google.maps.LatLng(latitude, longitude),
-		zoom: 13,
+		zoom: zoom,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		panControl: false,
         zoomControl: true,
@@ -68,10 +84,12 @@ function initialize(){
 	var userMarker = new google.maps.Marker({
 		position: mapOptions.center,
 		map: map,
-		animation: google.maps.Animation.BOUNCE
+		animation: google.maps.Animation.BOUNCE,
+		visible: maybe
 	});
 	var userInfoWindow = new google.maps.InfoWindow({
 		content: "You are here!"
+		
 	});
 	
 		
@@ -83,11 +101,13 @@ function initialize(){
 		
 	}
 
-
+	if (maybe) 
+	{
 	google.maps.event.addDomListener(window, 'load', function() {
 		userInfoWindow.open(map, userMarker);
 		
 	});
+};
 	
 }
 

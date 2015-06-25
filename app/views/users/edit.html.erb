@@ -18,6 +18,21 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <button type="button" onclick="findMe()"><b>Get Location</b></button>
+      <button type="button" onclick="removeMe()"><b>Remove Location</b></button><br><br>
+      <%= f.label :lat, "Latitude" %>
+      <%= f.text_field :lat, class: 'form-control', id: "user_lat", :readonly =>true %>
+      <%= f.label :long, "Longitude" %>
+      <%= f.text_field :long, class: 'form-control', id: "user_long", :readonly=> true %>
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city, class: 'form-control' %>
+
+      <%= f.label :sSubjects, "I want to study for " %>
+      <%= f.text_field :sSubjects, class: 'form-control' %>
+
+      <%= f.label :tSubjects, "I can tutor for " %>
+      <%= f.text_field :tSubjects, class: 'form-control' %>
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
@@ -27,3 +42,23 @@
     </div>
   </div>
 </div>
+
+<script>
+var x = document.getElementById('user_lat');
+var y = document.getElementById('user_long');
+function findMe() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+}
+
+function showPosition(position) {
+  x.value = position.coords.latitude;
+  y.value = position.coords.longitude;
+}
+
+function removeMe() {
+  x.value = null;
+  y.value = null;
+}
+</script>

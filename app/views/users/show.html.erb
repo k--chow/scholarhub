@@ -5,7 +5,14 @@
 			<h1>
  			 <%= gravatar_for @user %>
   			 <%= @user.name %><br>
-  			 Email: <%= @user.email %>
+  			 <%= @user.city %><br>
+  			 Email: <%= @user.email %><br><br>
+  			 <% if @user.student %>
+  			 	Studying for: <%= @user.sSubjects %>
+  			 <%end%><br><br>
+  			 <% if @user.tutor %>
+  			 	Tutoring for: <%= @user.tSubjects %>
+  			 <%end%>
 			</h1>
 		</section>
 	</aside>

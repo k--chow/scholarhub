@@ -7,22 +7,32 @@
       <%= render 'shared/error_messages' %>
 
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', :placeholder => "e.g Kevin Chow" %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', :placeholder => "e.g k__chow@hotmail.com" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password%>
+      <%= f.password_field :password, class: 'form-control', :placeholder => "At least 6 characters"  %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control',  :placeholder => "At least 6 characters"  %>
 
       <button type="button" onclick="findMe()"><b>Get Location</b></button><br><br>
       <%= f.label :lat, "Latitude" %>
       <%= f.text_field :lat, class: 'form-control', id: "user_lat", :readonly =>true %>
       <%= f.label :long, "Longitude" %>
       <%= f.text_field :long, class: 'form-control', id: "user_long", :readonly=> true %>
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city, class: 'form-control', :placeholder => "e.g Tampa, Florida" %>
+
+      <%= f.label :sSubjects, "I want to study for " %>
+      <%= f.text_area :sSubjects, class: 'form-control', :placeholder => 'e.g AP Statistics, SAT Math, ACT, IB Further Math' %>
+
+      <%= f.label :tSubjects, "I can tutor for " %>
+      <%= f.text_area :tSubjects, class: 'form-control', :placeholder =>'e.g AP Statistics, SAT Math, ACT, IB Further Math' %>
+ 
+
 
       <%= f.submit "Create my account", class: "btn btn-primary"  %>
     <% end %>

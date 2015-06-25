@@ -32,6 +32,9 @@ class StaticPagesController < ApplicationController
     else
       @users = User.paginate(page: params[:page],:per_page => 10)
     end
+    if no_user_location?
+      flash[:danger] = "Please enter your location in your profile."
+    end
   end
 
   def logged_in_user

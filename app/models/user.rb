@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save { self.email = email.downcase }
+  before_save :set_student_and_tutor
   before_create :create_activation_digest
 	validates :name, presence: true, length: { maximum: 50}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -79,5 +80,15 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    #Sets student and tutor booleans based on inputs
+    def set_student_and_tutor
+      if (!self.sSubjects.nil?)
+        self.student = true
+      end
+      if (!self.tSubjects.nil?)
+        self.tutor = true
+      end
     end
 end
