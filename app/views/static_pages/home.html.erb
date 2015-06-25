@@ -112,6 +112,10 @@ $.ajax({
 		myFunction(data);
 		initialize(latitude, longitude, users);
 	}
+	error: function() {
+		alert("FAIL!");
+	}
+
 });
 
 for (var i=0; i<gon.users.length; i++)
