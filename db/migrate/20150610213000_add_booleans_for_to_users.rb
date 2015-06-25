@@ -3,4 +3,5 @@ class AddBooleansForToUsers < ActiveRecord::Migration
     add_column :users, :student, :boolean
     add_column :users, :tutor, :boolean
     add_column :users, :both, :boolean
+  end
 end
