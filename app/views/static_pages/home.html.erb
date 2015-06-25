@@ -5,7 +5,6 @@
 
 <%= link_to "I'm a Student #{image_tag('student.png')}".html_safe, signup_path,  :class => "btn btn-lg btn-block"%><br>
 <%= link_to "I'm a Tutor #{image_tag('tutor.png')}".html_safe, signup_path, :class => "btn btn-lg btn-block"%><br>
-<%= link_to "Both #{image_tag('both.png')}".html_safe, signup_path, :class => "btn btn-lg btn-block"%>
 </div>
 
 
@@ -96,7 +95,7 @@ $.ajax({
 		ip = data.ip;
 	}
 });
-
+console.log(ip);
 //var lats = [];
 //var longs = []
 var latitude;
@@ -104,19 +103,7 @@ var longitude;
 var url = "https://freegeoip.net/json/" + ip
 var users = [];
 
-$.ajax({
-	url: url,
-	async: false,
-	dataType: 'json',
-	success: function(data) {
-		myFunction(data);
-		initialize(latitude, longitude, users);
-	}
-	error: function() {
-		alert("FAIL!");
-	}
 
-});
 
 for (var i=0; i<gon.users.length; i++)
 {
@@ -128,16 +115,34 @@ for (var i=0; i<gon.users.length; i++)
 	
 }
 
+console.log(users.length)
 
 
-function myFunction(data) {
+
+function myFunction(data, users) {
 	
 	var latitude = data.latitude;
 	var longitude = data.longitude;
-
+	initialize(latitude, longitude, users);
 	
-
+	
 }
+
+$.ajax({
+	url: url,
+	async: false,
+	dataType: 'json',
+	success: function(data) {
+		myFunction(data, users);
+		console.log("SUCCESS!")
+		
+	},
+	error: function() {
+		console.log("FAIL!")
+	},
+	type: 'GET'
+
+});
 	
 
 function initialize(latitude, longitude, users){
@@ -157,7 +162,7 @@ function initialize(latitude, longitude, users){
 	for (var i=0; i<users.length; i++)
 	{
 		
-		addMarker(users[i], window.map);
+		addMarker(users[i], map);
 		
 		
 	}
@@ -178,11 +183,12 @@ function addMarker(users, map) {
 	else {
 		icon = studentMarker;
 	}
+
 	latitude = users.lat;
 	longitude = users.long;
 
 	
-	var point = new google.maps.LatLng(users.lat, users.long);
+	var point = new google.maps.LatLng(latitude, longitude);
 	var marker = new google.maps.Marker({
 		position: point,
 		icon: icon,
