@@ -208,7 +208,8 @@ function addMarker(users, map) {
 	var url = "/signup"; 
 	
 	var info_window = new google.maps.InfoWindow({
-		content: "<a href=" + url + ">View Profile</a>"  
+		content: "<a href=" + url + ">View Profile</a>" + "<br>"
+		+ "Subjects: " 
 
 	});
 		google.maps.event.addListener(marker, 'click', function() {
