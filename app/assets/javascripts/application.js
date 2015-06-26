@@ -12,12 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require test.js
-//= require bootstrap.min
 //= require jquery-ui
+//= require bootstrap.min
+//= require test.js
 //= require smoothscroll.js
 //= require jquery.leanModal.js
-//= require maps.js
 //= require turbolinks
 //= require_tree .
 

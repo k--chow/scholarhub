@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
 
 	$(document).on('page:change', function() {
@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 	});
 
 	
-	$(document).on('page:load', function() {
+	$(document).on('page:change', function() {
 		jQuery('.expand').click(function() {
 		$expand = $(this);
 

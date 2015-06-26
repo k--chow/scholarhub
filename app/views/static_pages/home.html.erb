@@ -1,10 +1,10 @@
 <% if !logged_in? %>
 <div class="map-canvas-inside">
-<h1 style="background-color: grey">Sign up now!</h1>
+<h1 id="SignUpNow">Sign up now!</h1>
 
 
-<%= link_to "I'm a Student #{image_tag('student.png')}".html_safe, signup_path,  :class => "btn btn-lg btn-block"%><br>
-<%= link_to "I'm a Tutor #{image_tag('tutor.png')}".html_safe, signup_path, :class => "btn btn-lg btn-block"%><br>
+<%= link_to "I'm a Student #{image_tag('student.png')}".html_safe, signup_path,  :class => "btn btn-lg btn-block", :id => 'sSignup'%><br>
+<%= link_to "I'm a Tutor #{image_tag('tutor.png')}".html_safe, signup_path, :class => "btn btn-lg btn-block", :id => 'tSignup'%><br>
 </div>
 
 
@@ -22,7 +22,7 @@
 
 <h1>Where students and tutors connect.</h1>
 
-<a href="#help"><div id="tabs"></a>
+<div id="tabs">
 	<ul>
 		<li><a href="#tabs-1">Frequently Asked Questions</a></li>
 		<li><a href="#tabs-2">Rarely Asked Questions</a></li>
@@ -30,17 +30,26 @@
 
 	<div id="tabs-1">
 		
-		<p class="expand"><b>What is ScholarHub?</b></p>
+		<p class="expand">What is ScholarHub?</p>
 		<p class="info">A service that connects motivated students to both students and tutors. Find a student-tutor or a study group!</p>
-		<p class="expand"><b>How much does ScholarHub cost?</b></p>
+		<p class="expand">How much does ScholarHub cost?</p>
 		<p class="info">Absolutely nothing!</p>
-		
+		<p class="expand">How does ScholarHub work?</p>
+		<p class="info">Create an account. Use our finder to locate nearby scholars. Message them.</p>
+		<p class="expand">Who is ScholarHub for?</p>
+		<p class="info">Students. Tutors. Parents.</p>
+		<p class="expand">Why should I use ScholarHub?</p>
+		<p class="info">Studying alone is boring. Studying with people is fun. Studying alone is not always effective. Studying with others is effective.</p>
+		<p class="expand">Is my personal information available to others?</p>
+		<p class="info">Unless you accept someone as a friend, they cannot know your personal information. Your information about your location and what you want to study for is available on the finder, but not tied to anyone because it is anonymous.</p>
 	</div>
 
 	<div id="tabs-2">
 
 		<p class="expand">How much does ScholarHub make?</p>
 		<p class="info">Nothing!</p>
+		<p class="expand">What is the origin of ScholarHub?</p>
+		<p class="info">A student who was frustrated with studying alone.</p>
 
 	</div>
 </div>
@@ -209,8 +218,20 @@ function addMarker(users, map) {
 	return marker;
 }
 
+jQuery(document).ready(function() {
 
+
+jQuery('SignUpNow').delay(1000).fadeIn(2000);
 	
+});
+
+
+
+
+
+
+
+
 
 
 
