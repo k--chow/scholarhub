@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   def home
   	@title = "Home of Scholars"
     gon.users = User.all
+    @all = User.last.id
   end
 
   def help
