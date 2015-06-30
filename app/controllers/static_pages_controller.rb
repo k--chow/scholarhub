@@ -4,6 +4,8 @@ class StaticPagesController < ApplicationController
   	@title = "Home of Scholars"
     gon.users = User.all
     @all = User.last.id
+    @countS = User.count(:student)
+    @countT = User.count(:tutor)
   end
 
   def help

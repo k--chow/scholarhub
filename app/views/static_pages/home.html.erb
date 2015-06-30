@@ -20,8 +20,8 @@
 <a name="more"></a>
 <a href="#more" class="smoothScroll"><br><br><br>
 <h1 id="learnmore">Learn More</h1></a>
-<h1 class="bg-info" id="ScholarCount"><span class="timer"><%= @all %></span> Scholars</h3>
-<h1>Where students and tutors connect.</h1>
+<h1 class="bg-info" id="ScholarCount"><span class="timer"><%= @all %></span> Scholars have signed up. We have <%= @countT %> Tutors and <%= @countS %> Students.</h3>
+<h1 class="jumbotron flagship">Where students and tutors connect.</h1>
 <div class="container">
 <div class="col-md-6">
 <div id="tabs">
@@ -185,19 +185,23 @@ function addMarker(users, map) {
 	var bothMarker = 'images/both.png';
 	var icon;
 	var status;
+	var info;
 
 	if (users.student && users.tutor)
 	{
 		icon = bothMarker;
 		status = "Student and Tutor"
+		info = "I study: " + users.sSubjects + "<br>I tutor: " + users.tSubjects;
 	}
 	else if (users.tutor) {
 		icon = tutorMarker;
 		status = "Tutor";
+		info = "I tutor: " + users.tSubjects;
 	}
 	else {
 		icon = studentMarker;
 		status = "Student"
+		info = "I study: " + users.sSubjects;
 	}
 
 	latitude = users.lat;
@@ -215,8 +219,8 @@ function addMarker(users, map) {
 	var url = "/signup"; 
 	
 	var info_window = new google.maps.InfoWindow({
-		content: "<span class='status'>" + status +  "</span><br><a href=" + url + ">Sign up to message me!</a>" + "<br>"
-		+ "Subjects: " 
+		content: "<span class='status'>" + status +  "</span><br><a href=" + url + ">Sign up to message me!</a>" + "<br>" + info
+		
 
 	});
 		google.maps.event.addListener(marker, 'click', function() {

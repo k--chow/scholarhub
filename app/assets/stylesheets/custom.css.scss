@@ -5,6 +5,7 @@
 
 body {
 	padding-top:60px;
+  background: black;
 }
 
 section {
@@ -380,3 +381,12 @@ h1#SignUpNow
 {
   visibility: hidden;
 }
+
+.jumbotron.flagship {
+  background:url("../images/ScholarHub.jpg");
+  height: 426px;
+  width: 640px;
+  position: relative;
+  left: 25%;
+}
+
